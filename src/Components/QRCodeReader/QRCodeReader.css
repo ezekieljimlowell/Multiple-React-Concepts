@@ -1,37 +1,27 @@
-.webcam-preview {
-  position: relative; /* Position for overlay */
-  width: 100%;
-  height: auto;
-  border: 5px solid transparent; /* Transparent border */
-  box-sizing: border-box;
-}
-
-.webcam-preview::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 5px solid orange; /* Border color for the finder pattern */
-  box-sizing: border-box;
+.videoContainer {
+  width: 80%;
 }
 
 .webcam-container {
+  width: 100%; /* Adjust the width of the webcam container */
+  height: 100vh; /* Adjust the height of the webcam container */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.webcam-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
+.viewfinder {
+  width: 200px; /* Adjust the width of the viewfinder */
+  height: 200px; /* Adjust the height of the viewfinder */
+  background: linear-gradient(to right, orange 4px, transparent 4px) 0 0,
+    linear-gradient(to right, orange 4px, transparent 4px) 0 100%,
+    linear-gradient(to left, orange 4px, transparent 4px) 100% 0,
+    linear-gradient(to left, orange 4px, transparent 4px) 100% 100%,
+    linear-gradient(to bottom, orange 4px, transparent 4px) 0 0,
+    linear-gradient(to bottom, orange 4px, transparent 4px) 100% 0,
+    linear-gradient(to top, orange 4px, transparent 4px) 0 100%,
+    linear-gradient(to top, orange 4px, transparent 4px) 100% 100%;
 
-.webcam-button:hover {
-  background-color: #2980b9;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
 }

@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import Webcam from 'react-webcam';
 import qrcode from 'qrcode';
 import "./QRCodeReader.css";
+import FlashLight from './SubComponents/Flashlight';
+import FlipCamera from './SubComponents/FlipCamera';
 
 const QRCodeReader = () => {
     const webcamRef = useRef(null);
@@ -21,12 +23,17 @@ const QRCodeReader = () => {
 
     return (
         <div className="webcam-container">
-            <Webcam
-                audio={false}
-                ref={webcamRef}
-                screenshotFormat="image/png"
-                className="webcam-preview"
-            />
+            <div className='videoContainer'>
+                <Webcam
+                    audio={false}
+                    ref={webcamRef}
+                    screenshotFormat="image/png"
+                    className="webcam-preview"
+                />
+                <div className='viewfinder'></div>
+            </div>
+            <FlashLight />
+            <FlipCamera webcamRef={webcamRef} />
             <button className="webcam-button" onClick={handleScan}>Scan QR Code</button>
             {qrData && <p>Scanned QR code data: {qrData}</p>}
         </div>
